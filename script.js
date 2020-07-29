@@ -57,6 +57,7 @@ function getUserInput() {
         var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase letters");
         var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase letters");   
     }
+    var newPassword = ""
 };
 
 var choicesArray = [];
@@ -73,13 +74,15 @@ function generateChoicesArray() {
 };
 
 function generateNewPassword() {
-    if (choicesArray.length < numbers.length || getLength < 8) {
-        alert("You did not meet the minimum standard ")
-    } else {
-
-        for (var i = 0; i < confirmPasswordLength; i++) {
-            newPassword = newPassword + choicesArray[Math.floor(Math.random() * choicesArray.length)];
-            console.log(newPassword)
-        }
-        writePassword.textContent = newPassword;
-});
+   
+    for (var i = 0; i < confirmPasswordLength; i++) {
+        newPassword = newPassword + choicesArray[Math.floor(Math.random() * choicesArray.length)];
+        console.log(newPassword)
+     }
+};    
+function writePassword() {
+    var newPassword = generateNewPassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = newPassword;
+  }
